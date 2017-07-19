@@ -1,0 +1,23 @@
+{
+  "name": "eaptain",
+  "version": "0.0.1",
+  "description": "eaptain",
+  "main": "dist/index.js",
+  "repository": "https://github.com/eaptain/eaptain.git",
+  "author": "I'amee <admin@cavacn.com>",
+  "license": "MIT",
+  "bin": "dist/bin/eaptain",
+  "typings": "dist/index.d.ts",
+  "dependencies": {
+    "@types/debug": "^0.0.29",
+    "@types/redis": "^2.6.0",
+    "@types/yargs": "^8.0.1",
+    "debug": "^2.6.8",
+    "redis": "^2.7.1",
+    "yargs": "^8.0.2"
+  },
+  "scripts": {
+    "compile": "rm -rf dist && tsc",
+    "prepublish": "npm run compile"
+  }
+}
