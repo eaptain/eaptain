@@ -1,12 +1,12 @@
 {
   "name": "eaptain",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "eaptain",
   "main": "dist/index.js",
   "repository": "https://github.com/eaptain/eaptain.git",
   "author": "I'amee <admin@cavacn.com>",
   "license": "MIT",
-  "bin": "dist/bin/eaptain",
+  "bin": "dist/bin/eaptain.js",
   "typings": "dist/index.d.ts",
   "dependencies": {
     "@types/debug": "^0.0.29",
