@@ -32,8 +32,8 @@ export class Eaptain extends EventEmitter {
             info(`add service [${service.serviceName}] -> ${service.hostPort}`);
             return new Promise((resolve, reject) => {
                 this.center.multi()
-                    .sadd('SE.EAPTIAN', service.serviceName)
-                    .sadd(`SE.EAPTIAN.${service.serviceName}`, service.hostPort)
+                    .sadd('SE.EAPTAIN', service.serviceName)
+                    .sadd(`SE.EAPTAIN.${service.serviceName}`, service.hostPort)
                     .exec((err) => {
                         if (err) return reject(err);
                         return resolve();
@@ -49,14 +49,14 @@ export class Eaptain extends EventEmitter {
             info(`del service [${service.serviceName}] -> ${service.hostPort}`);
             return new Promise((resolve, reject) => {
                 this.center.multi()
-                    .srem(`SE.EAPTIAN.${service.serviceName}`, service.hostPort)
+                    .srem(`SE.EAPTAIN.${service.serviceName}`, service.hostPort)
                     .exec((err) => {
                         if (err) return reject(err);
                         return resolve();
                     })
             }).then(() => {
                 return new Promise((resolve, rejcet) => {
-                    this.center.scard(`SE.EAPTIAN.${service.serviceName}`, (err, count) => {
+                    this.center.scard(`SE.EAPTAIN.${service.serviceName}`, (err, count) => {
                         if (err) return rejcet(err);
                         return resolve(count);
                     });
@@ -64,7 +64,7 @@ export class Eaptain extends EventEmitter {
                     if (!count) {
                         return new Promise((resolve, reject) => {
                             this.center.multi()
-                                .srem(`SE.EAPTIAN`, service.serviceName)
+                                .srem(`SE.EAPTAIN`, service.serviceName)
                                 .exec((err) => {
                                     if (err) return reject(err);
                                     return resolve(count);
